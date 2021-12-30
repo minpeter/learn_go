@@ -1,44 +1,56 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"net/http"
 )
 
+type requestResult struct {
+	url string
+	status string
+}
+
 func main() {
+	
+	results := make(map[string]string)
+	channel := make(chan requestResult)
 	urls := []string{
-		"https://www.google.com",
-		"https://www.facebook.com",
-		"https://www.youtube.com",
-		"https://www.amazon.com",
-		"https://www.reddit.com",
-		"https://www.instagram.com",
-		"https://www.linkedin.com",
-		"https://www.twitter.com",
-		"https://www.github.com",
-		"https://www.pinterest.com",
-		"https://www.quora.com",
-		"https://www.stackoverflow.com",
-		"https://www.tumblr.com",
-		"https://www.flickr.com",
+		"https://www.google.com/",
+		"https://www.facebook.com/",
+		"https://www.youtube.com/",
+		"https://www.amazon.com/",
+		"https://www.reddit.com/",
+		"https://www.instagram.com/",
+		"https://www.linkedin.com/",
+		"https://www.twitter.com/",
+		"https://www.github.com/",
+		"https://www.pinterest.com/",
+		"https://www.quora.com/",
+		"https://www.stackoverflow.com/",
+		"https://www.tumblr.com/",
+		"https://www.flickr.com/",
 	}
+
 	for _, url := range urls {
-		err := hitURL(url)
-		if err == nil {
-			fmt.Println(err)
-		}
-		fmt.Println("URL:", url, "is up!")
+		go hitURL(url, channel)
+	}
+
+	for i:=0; i<len(urls); i++ {
+		result := <-channel
+		results[result.url] = result.status
+	}
+	
+	for url, status := range results {
+		fmt.Println(url, status)
 	}
 }
 
-var errRequestFailed = errors.New("request failed")
-
-func hitURL(url string) error {
-	fmt.Println("Checking:", url)
+func hitURL(url string, channel chan<- requestResult) { //send only
+	fmt.Println("Checking URL:", url)
+	status := "OK"
 	resp, err := http.Get(url)
-	if err == nil || resp.StatusCode >= 400{
-		return errRequestFailed
+	if err != nil || resp.StatusCode >= 400{
+		status = "FAILED"
 	}
-	return nil
+	channel <- requestResult{url: url, status: status}
 }
