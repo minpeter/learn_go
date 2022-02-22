@@ -1,55 +1,26 @@
-package accounts
+package main
 
 import (
-	"errors"
 	"fmt"
+	"log"
+
+	"github.com/minpeter/learngo/nmc/accounts/accounts"
 )
 
-// Account struct
-type Account struct {
-	owner   string
-	balance int
-}
+func main() {
+	account := accounts.NewAccount("minpeter")
+	account.Deposit(100)
 
-// NewAccount creates a new account
-func NewAccount(owner string) *Account {
-	account := Account{owner: owner, balance: 0}
-	return &account
-}
+	fmt.Println(account.String())
 
-//Deposit returns the description of the account
-func (a *Account) Deposit(amount int) {
-	a.balance += amount
-}
-
-//Balance returns the balance of the account
-func (a Account) Balance() int {
-	return a.balance
-}
-
-var errNoMoney = errors.New("can't withdraw, not enough money")
-
-//Withdraw returns the description of the account
-func (a *Account) Withdraw(amount int) error {
-	if a.balance < amount {
-		return errNoMoney
+	err := account.Withdraw(30)
+	if err != nil {
+		log.Fatalln(err)
 	}
-	a.balance -= amount
-	return nil
-}
+	fmt.Println(account.String())
 
-//ChangeOwner changes the owner of the account
-func (a *Account) ChangeOwner(newOwner string) {
-	a.owner = newOwner
-}
+	account.ChangeOwner("minpeter2")
 
-func (a Account) Owner() string {
-	return a.owner
-}
+	fmt.Println(account.String())
 
-// like python class in __str__()
-
-// String returns the description of the account
-func (a Account) String() string {
-	return fmt.Sprint(a.Owner(), ":", a.Balance())
 }
