@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/minpeter/learngo/nmc/accounts"
+	"github.com/minpeter/learngo/nmc/accounts/accounts"
 )
 
 func main() {
