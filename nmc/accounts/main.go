@@ -27,7 +27,7 @@ func (a Account) Balance() int {
 	return a.balance
 }
 
-var errNoMoney = errors.New("Can't withdraw, not enough money")
+var errNoMoney = errors.New("can't withdraw, not enough money")
 
 //Withdraw returns the description of the account
 func (a *Account) Withdraw(amount int) error {
