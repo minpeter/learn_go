@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/minpeter/learngo/mydict"
+	"github.com/minpeter/learn_go/mydict/mydict"
 )
 
 func main() {
