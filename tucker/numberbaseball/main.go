@@ -59,6 +59,56 @@ func MakeNumbers() [3]int {
 func InputNumbers() [3]int {
 	// 키보드로 숫자 3개 입력 받아서 배열 반환
 	var rst [3]int
+	for {
+		fmt.Print("숫자 3개를 입력하세요: ")
+		var no int
+		_, err := fmt.Scanf("%d\n", &no)
+		if err != nil {
+			fmt.Println("잘못된 입력입니다.")
+			continue
+		}
+
+		success := true
+		idx := 0
+		for no > 0 {
+			n := no % 10
+			no = no / 10
+
+			duplicated := false
+			for i := 0; i < idx; i++ {
+				if rst[i] == n {
+					duplicated = true
+					break
+				}
+			}
+			if duplicated {
+				fmt.Println("숫자가 중복되었습니다.")
+				success = false
+				break
+			}
+
+			if idx >= 3 {
+				fmt.Println("숫자 3개를 입력하셔야 합니다.")
+				success = false
+				break
+			}
+
+			rst[idx] = n
+			idx++
+		}
+
+		if success && idx < 3 {
+			fmt.Println("숫자 3개를 입력하셔야 합니다.")
+			success = false
+		}
+
+		if !success {
+			continue
+		}
+		break
+	}
+	rst[0], rst[2] = rst[2], rst[0]
+	fmt.Println(rst)
 	return rst
 }
 
