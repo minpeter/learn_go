@@ -142,7 +142,7 @@ func PrintResult(result Result) {
 	fmt.Println("스트라이크:", result.strikes, "볼:", result.balls)
 }
 
-func IsGameEnd(result bool) bool {
+func IsGameEnd(result Result) bool {
 	// 게임 종료 여부 반환
-	return true
+	return result.strikes == 3
 }
