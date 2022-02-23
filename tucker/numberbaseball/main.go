@@ -6,6 +6,11 @@ import (
 	"time"
 )
 
+type Result struct {
+	strikes int
+	balls   int
+}
+
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	// 무작위 숫자 3개 생성
@@ -112,14 +117,29 @@ func InputNumbers() [3]int {
 	return rst
 }
 
-func CompareNumbers(numbers, inputNumbers [3]int) bool {
+func CompareNumbers(numbers, inputNumbers [3]int) Result {
 	// 두개의 숫자 3개를 비교해서 결과를 반환
-	return true
+	strike := 0
+	balls := 0
+
+	for i := 0; i < 3; i++ {
+		for j := 0; j < 3; j++ {
+			if numbers[i] == inputNumbers[j] {
+				if i == j {
+					strike++
+				} else {
+					balls++
+				}
+			}
+		}
+	}
+
+	return Result{strikes: strike, balls: balls}
 }
 
-func PrintResult(result bool) {
+func PrintResult(result Result) {
 	// 결과 출력
-	fmt.Println(result)
+	fmt.Println("스트라이크:", result.strikes, "볼:", result.balls)
 }
 
 func IsGameEnd(result bool) bool {
