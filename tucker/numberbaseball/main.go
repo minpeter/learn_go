@@ -113,7 +113,6 @@ func InputNumbers() [3]int {
 		break
 	}
 	rst[0], rst[2] = rst[2], rst[0]
-	fmt.Println(rst)
 	return rst
 }
 
