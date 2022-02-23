@@ -2,14 +2,18 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"time"
 )
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
 	// 무작위 숫자 3개 생성
 	numbers := MakeNumbers()
 
 	cnt := 0
 	for {
+		cnt++
 		// 사용자 입력
 		inputNumbers := InputNumbers()
 
@@ -21,7 +25,7 @@ func main() {
 
 		// 3s 인가?
 		if IsGameEnd(result) {
-			fmt.Println("3s")
+			// 반복문 종료
 			break
 		}
 	}
@@ -32,6 +36,23 @@ func main() {
 func MakeNumbers() [3]int {
 	// 0~9 사이에 겹치지 않는 무작위 숫자 3개 반환
 	var rst [3]int
+
+	for i := 0; i < 3; i++ {
+		for {
+			n := rand.Intn(10)
+			duplicated := false
+			for j := 0; j < i; j++ {
+				if rst[j] == n {
+					duplicated = true
+					break
+				}
+			}
+			if !duplicated {
+				rst[i] = n
+				break
+			}
+		}
+	}
 	return rst
 }
 
