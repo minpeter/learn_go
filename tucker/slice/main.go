@@ -32,4 +32,21 @@ func main() {
 	fmt.Printf("t의 주소: %p\n", t)
 	fmt.Printf("y의 주소: %p\n", y)
 
+	/// ++++++ slice을 slice하는 방법 +++++++ ///
+
+	e := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+	r := e[4:8] // 5번째부터 7번째까지 슬라이스
+
+	f := e[:5] //처음부터 5번째까지 슬라이스
+
+	d := e[5:] //5번째부터 끝까지 슬라이스
+
+	fmt.Println("r = ", r) // [5 6 7 8]
+	fmt.Println("f = ", f) // [1 2 3 4 5]
+	fmt.Println("d = ", d) // [6 7 8 9 10]
+
+	r[1] = 100 //e r f d 전체를 변경시킴
+
+	fmt.Println(e, r, f, d)
 }
