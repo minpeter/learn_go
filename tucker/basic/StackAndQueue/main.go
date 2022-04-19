@@ -41,4 +41,15 @@ func main() {
 	}
 	fmt.Println()
 
+	queue2 := dataStruct.NewQueue()
+	for i := 0; i <= 5; i++ {
+		queue2.Push(i)
+	}
+	fmt.Println("New Queue")
+	for !queue2.Empty() {
+		val := queue2.Pop()
+		fmt.Printf("%d -> ", val)
+	}
+	fmt.Println()
+
 }

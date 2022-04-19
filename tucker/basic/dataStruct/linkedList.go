@@ -32,6 +32,13 @@ func (l *LinkedList) Back() int {
 	return 0
 }
 
+func (l *LinkedList) Front() int {
+	if l.Root != nil {
+		return l.Root.Val
+	}
+	return 0
+}
+
 func (l *LinkedList) Empty() bool {
 	return l.Root == nil
 }
@@ -41,6 +48,13 @@ func (l *LinkedList) PopBack() {
 		return
 	}
 	l.RemoveNode(l.Tail)
+}
+
+func (l *LinkedList) PopFront() {
+	if l.Root == nil {
+		return
+	}
+	l.RemoveNode(l.Root)
 }
 
 func (l *LinkedList) RemoveNode(node *Node) {
