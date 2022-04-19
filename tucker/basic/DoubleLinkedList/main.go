@@ -4,62 +4,81 @@ import "fmt"
 
 type Node struct {
 	next *Node
+	prev *Node
 	val  int
 }
 
-func main() {
-	var root *Node
-	var tail *Node
-
-	root = &Node{val: 0}
-	tail = root
-
-	for i := 1; i < 10; i++ {
-		tail = AddNode(tail, i)
-	}
-
-	PrintNodes(root)
-	root, tail = RemoveNode(root.next.next, root, tail)
-	PrintNodes(root)
-	root, tail = RemoveNode(root, root, tail)
-	PrintNodes(root)
-	root, tail = RemoveNode(tail, root, tail)
-	PrintNodes(root)
+type LinkedList struct {
+	root *Node
+	tail *Node
 }
 
-func AddNode(tail *Node, val int) *Node {
-	node := &Node{val: val}
-	tail.next = node
-	return node
+func (l *LinkedList) AddNode(val int) {
+	if l.root == nil {
+		l.root = &Node{val: val}
+		l.tail = l.root
+		return
+	}
+	l.tail.next = &Node{val: val}
+	prev := l.tail
+	l.tail = l.tail.next
+	l.tail.prev = prev
 }
 
-func RemoveNode(node, root, tail *Node) (*Node, *Node) {
-	if node == root {
-		root = root.next
-		if root == nil {
-			tail = nil
-		}
-		return root, tail
-	}
-	prev := root
-	for prev.next != node {
-		prev = prev.next
+func (l *LinkedList) RemoveNode(node *Node) {
+	if node == l.root {
+		l.root = l.root.next
+		l.root.prev = nil
+		node.next = nil
+		return
 	}
 
-	if node == tail {
+	prev := node.prev
+
+	if node == l.tail {
 		prev.next = nil
-		tail = prev
+		l.tail.prev = nil
+		l.tail = prev
 	} else {
+		node.prev = nil
 		prev.next = prev.next.next
+		prev.next.prev = prev
 	}
-
-	return root, tail
+	node.next = nil
 }
 
-func PrintNodes(node *Node) {
+func (l *LinkedList) PrintNodes() {
+	node := l.root
 	for node.next != nil {
-		fmt.Print(node.val, " -> ")
+		fmt.Printf("%d -> ", node.val)
 		node = node.next
 	}
-	fmt.Println(node.val)
+	fmt.Printf("%d\n", node.val)
+}
+
+func (l *LinkedList) PrintReverse() {
+	node := l.tail
+	for node.prev != nil {
+		fmt.Printf("%d -> ", node.val)
+		node = node.prev
+	}
+	fmt.Printf("%d\n", node.val)
+}
+
+func main() {
+
+	list := &LinkedList{}
+	list.AddNode(0)
+	for i := 1; i < 10; i++ {
+		list.AddNode(i)
+	}
+	list.PrintNodes()
+	list.RemoveNode(list.root.next)
+	list.PrintNodes()
+	list.RemoveNode(list.root)
+	list.PrintNodes()
+	list.RemoveNode(list.tail)
+	list.PrintNodes()
+	fmt.Printf("tail: %d\n", list.tail.val)
+	list.PrintReverse()
 }
