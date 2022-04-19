@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/minpeter/learn_go/tucker/basic/dataStruct"
+)
 
 func main() {
 	//slice로 구현한 stack
@@ -25,4 +29,16 @@ func main() {
 		front, queue = queue[0], queue[1:]
 		fmt.Println(front)
 	}
+
+	stack2 := dataStruct.NewStack()
+	for i := 0; i <= 5; i++ {
+		stack2.Push(i)
+	}
+	fmt.Println("New Stack")
+	for !stack2.Empty() {
+		val := stack2.Pop()
+		fmt.Printf("%d -> ", val)
+	}
+	fmt.Println()
+
 }
