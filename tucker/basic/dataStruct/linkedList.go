@@ -25,10 +25,30 @@ func (l *LinkedList) AddNode(Val int) {
 	l.Tail.Prev = Prev
 }
 
+func (l *LinkedList) Back() int {
+	if l.Tail != nil {
+		return l.Tail.Val
+	}
+	return 0
+}
+
+func (l *LinkedList) Empty() bool {
+	return l.Root == nil
+}
+
+func (l *LinkedList) PopBack() {
+	if l.Tail == nil {
+		return
+	}
+	l.RemoveNode(l.Tail)
+}
+
 func (l *LinkedList) RemoveNode(node *Node) {
 	if node == l.Root {
 		l.Root = l.Root.Next
-		l.Root.Prev = nil
+		if l.Root != nil {
+			l.Root.Prev = nil
+		}
 		node.Next = nil
 		return
 	}

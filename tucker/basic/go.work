@@ -4,4 +4,5 @@ use (
   ./numberbaseball
   ./dataStruct
   ./slice
+  ./StackAndQueue
 )
