@@ -1,6 +1,40 @@
-package dataStruct
+/*
+정수 배열과 정수 N이 주어지면,
+N번째로 큰 배열 원소를 찾으시오
 
-import "fmt"
+ex)
+input: [-1, 3, -1, 5, 4], 2
+output: 4
+
+input: [2, 4, -2, -3, 8], 1
+output: 8
+
+input: [-5, -3, 1], 3
+output: -5
+*/
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var input1 = [...]int{-1, 3, -1, 5, 4}
+	input2 := 2
+	var output int
+
+	h := &Heap{}
+	for i := 0; i < len(input1); i++ {
+		h.Push(input1[i])
+	}
+
+	for i := 0; i <= input2-1; i++ {
+		output = h.Pop()
+	}
+	fmt.Println(output)
+
+}
 
 type Heap struct {
 	list []int
@@ -65,8 +99,4 @@ func (h *Heap) Pop() int {
 		idx = swapIdx
 	}
 	return top
-}
-
-func (h *Heap) Print() {
-	fmt.Println(h.list)
 }
