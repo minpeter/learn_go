@@ -36,7 +36,6 @@ func DFS1(node *TreeNode) {
 }
 
 func (t *Tree) DFS2() {
-	// 슬라이스로 만든 트리를 이용
 	s := []*TreeNode{}
 	s = append(s, t.Root)
 
@@ -48,6 +47,22 @@ func (t *Tree) DFS2() {
 
 		for i := len(last.Childs) - 1; i >= 0; i-- {
 			s = append(s, last.Childs[i])
+		}
+	}
+}
+
+func (t *Tree) BFS() {
+	queue := []*TreeNode{}
+	queue = append(queue, t.Root)
+
+	for len(queue) > 0 {
+		var first *TreeNode
+		first, queue = queue[0], queue[1:]
+
+		fmt.Printf("%d -> ", first.Val)
+
+		for i := 0; i < len(first.Childs); i++ {
+			queue = append(queue, first.Childs[i])
 		}
 	}
 }

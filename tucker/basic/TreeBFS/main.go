@@ -22,10 +22,8 @@ func main() {
 			val++
 		}
 	}
-	fmt.Println("재귀 호출을 이용한 DFS")
-	tree.DFS1()
+	fmt.Println("큐를 이용한 BFS")
+	tree.BFS()
 	fmt.Println()
-	fmt.Println("스택을 이용한 DFS")
-	tree.DFS2()
-	fmt.Println()
+
 }
