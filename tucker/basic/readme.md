@@ -2,13 +2,13 @@
 
 | Number |             Title              |              YouTube              |            Document            |                           Source code                           | Confirm |
 | :----: | :----------------------------: | :-------------------------------: | :----------------------------: | :-------------------------------------------------------------: | :-----: |
-|   1    |     트랜지스터를 알아보자      | [🎥](https://youtu.be/Tq3W8UyltFs) | [📑](./Documents/transistor.md) |                          [💾](./hello/)                          |    ✅    |
-|   2    | 트랜지스터로 논리소자를 만든다 | [🎥](https://youtu.be/jMYAZ6VGPkI) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
-|   3    |  논리소자가 컴퓨터가 되기까지  | [🎥](https://youtu.be/Tq3W8UyltFs) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
-|   4    |         컴퓨터의 원리          | [🎥](https://youtu.be/1hbwKtyUyrw) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
-|   5    |       프로그래밍 언어란?       | [🎥](https://youtu.be/uogQiQirbrY) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
-|   6    | 컴파일언어와 동적 언어의 차이  | [🎥](https://youtu.be/2cgUySLtfFE) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
-|   7    |         Golang 가즈아!         | [🎥](https://youtu.be/Of-mGH8OLT8) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
+|   1    |     트랜지스터를 알아보자      | [🎥](https://youtu.be/Tq3W8UyltFs) | [📑](./Documents/transistor.md) |                                ⛔                                |    ✅    |
+|   2    | 트랜지스터로 논리소자를 만든다 | [🎥](https://youtu.be/jMYAZ6VGPkI) |       [📑](./Documents/)        |                                ⛔                                |    ✅    |
+|   3    |  논리소자가 컴퓨터가 되기까지  | [🎥](https://youtu.be/Tq3W8UyltFs) |       [📑](./Documents/)        |                                ⛔                                |    ✅    |
+|   4    |         컴퓨터의 원리          | [🎥](https://youtu.be/1hbwKtyUyrw) |       [📑](./Documents/)        |                                ⛔                                |    ✅    |
+|   5    |       프로그래밍 언어란?       | [🎥](https://youtu.be/uogQiQirbrY) |       [📑](./Documents/)        |                                ⛔                                |    ✅    |
+|   6    | 컴파일언어와 동적 언어의 차이  | [🎥](https://youtu.be/2cgUySLtfFE) |       [📑](./Documents/)        |                                ⛔                                |    ✅    |
+|   7    |         Golang 가즈아!         | [🎥](https://youtu.be/Of-mGH8OLT8) |       [📑](./Documents/)        |                      [💾](./hello/hello.go)                      |    ✅    |
 |   8    |      Go로 만든 Hello 월드      | [🎥](https://youtu.be/j_deLffQR58) |   [📑](./Documents/hello.md)    |                      [💾](./hello/hello.go)                      |    ✅    |
 |   9    |         Go의 변수 - 1          | [🎥](https://youtu.be/hrXudfFOEPY) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
 |   10   |         Go의 변수 - 2          | [🎥](https://youtu.be/LLf4fcyUdkM) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
@@ -35,8 +35,8 @@
 |   29   |              Tree              | [🎥](https://youtu.be/12YWNAGRtJ8) |       [📑](./Documents/)        |                    [💾](./dataStruct/tree.go)                    |    ✅    |
 |   30   |            Tree DFS            | [🎥](https://youtu.be/ueZZ9tMbG4s) |       [📑](./Documents/)        |                     [💾](./TreeDFS/main.go)                      |    ✅    |
 |   31   |      Tree BFS와 Dijkstra       | [🎥](https://youtu.be/pXSAbm7YI3c) |       [📑](./Documents/)        |  [💾TreeBFS](./TreeBFS/main.go) [💾Dijkstra](./Dijkstra/main.go)  |    ✅    |
-|   32   |        BTS 가 아닌 BST         | [🎥](https://youtu.be/Bi3AIDtFFks) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
-|   33   |            Heap - 1            | [🎥](https://youtu.be/FbSCmuoq0no) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
+|   32   |        BTS 가 아닌 BST         | [🎥](https://youtu.be/Bi3AIDtFFks) |       [📑](./Documents/)        |       [💾](./dataStruct/binaryTree.go) [💾](./BST/main.go)        |    ✅    |
+|   33   |            Heap - 1            | [🎥](https://youtu.be/FbSCmuoq0no) |       [📑](./Documents/)        |                                ⛔                                |    ✅    |
 |   34   |            Heap - 2            | [🎥](https://youtu.be/DqiEXoUkdrs) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
 |   35   |    Heap을 이용한 문제 풀이     | [🎥](https://youtu.be/liJZaku6_KI) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
 |   36   |       Map과 Hash의 관계        | [🎥](https://youtu.be/J91hAZfCmaU) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
