@@ -34,10 +34,10 @@
 |   28   |   Packaging 과 Stack, Queue    | [🎥](https://youtu.be/B7Pu4Gd4RjE) |       [📑](./Documents/)        | [💾stack](./dataStruct/stack.go) [💾queue](./dataStruct/queue.go) |    ✅    |
 |   29   |              Tree              | [🎥](https://youtu.be/12YWNAGRtJ8) |       [📑](./Documents/)        |                    [💾](./dataStruct/tree.go)                    |    ✅    |
 |   30   |            Tree DFS            | [🎥](https://youtu.be/ueZZ9tMbG4s) |       [📑](./Documents/)        |                     [💾](./TreeDFS/main.go)                      |    ✅    |
-|   31   |      Tree BFS와 Dijkstra       | [🎥](https://youtu.be/pXSAbm7YI3c) |       [📑](./Documents/)        |  [💾TreeBFS](./TreeBFS/main.go) [💾Dijkstra](./Dijkstra/main.go)  |    ✅    |
+|   31   |      Tree BFS와 Dijkstra       | [🎥](https://youtu.be/pXSAbm7YI3c) |       [📑](./Documents/)        |                  [💾TreeBFS](./TreeBFS/main.go)                  |    ✅    |
 |   32   |        BTS 가 아닌 BST         | [🎥](https://youtu.be/Bi3AIDtFFks) |       [📑](./Documents/)        |       [💾](./dataStruct/binaryTree.go) [💾](./BST/main.go)        |    ✅    |
 |   33   |            Heap - 1            | [🎥](https://youtu.be/FbSCmuoq0no) |       [📑](./Documents/)        |                                ⛔                                |    ✅    |
-|   34   |            Heap - 2            | [🎥](https://youtu.be/DqiEXoUkdrs) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
+|   34   |            Heap - 2            | [🎥](https://youtu.be/DqiEXoUkdrs) |       [📑](./Documents/)        |          [💾](./dataStruct/heap.go) [💾](./Heap/main.go)          |    ✅    |
 |   35   |    Heap을 이용한 문제 풀이     | [🎥](https://youtu.be/liJZaku6_KI) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
 |   36   |       Map과 Hash의 관계        | [🎥](https://youtu.be/J91hAZfCmaU) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
 |   37   |            Map 구현            | [🎥](https://youtu.be/feJCUyskaL4) |       [📑](./Documents/)        |                          [💾](./hello/)                          |    ⬜️    |
