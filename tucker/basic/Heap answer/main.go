@@ -22,17 +22,16 @@ import (
 func main() {
 	var input1 = [...]int{-1, 3, -1, 5, 4}
 	input2 := 2
-	var output int
 
 	h := &Heap{}
 	for i := 0; i < len(input1); i++ {
 		h.Push(input1[i])
+		if h.Count() > input2 {
+			h.Pop()
+		}
 	}
 
-	for i := 0; i <= input2-1; i++ {
-		output = h.Pop()
-	}
-	fmt.Println(output)
+	fmt.Println(h.Pop())
 
 }
 
@@ -50,7 +49,7 @@ func (h *Heap) Push(v int) {
 		if parentIdx < 0 {
 			break
 		}
-		if h.list[idx] > h.list[parentIdx] {
+		if h.list[idx] < h.list[parentIdx] {
 			h.list[idx], h.list[parentIdx] = h.list[parentIdx], h.list[idx]
 			idx = parentIdx
 		} else {
@@ -80,14 +79,14 @@ func (h *Heap) Pop() int {
 		if leftIdx >= len(h.list) {
 			break
 		}
-		if h.list[leftIdx] > h.list[idx] {
+		if h.list[leftIdx] < h.list[idx] {
 			swapIdx = leftIdx
 		}
 
 		rightIdx := idx*2 + 2
 		if rightIdx < len(h.list) {
-			if h.list[rightIdx] > h.list[idx] {
-				if swapIdx < 0 || h.list[swapIdx] < h.list[rightIdx] {
+			if h.list[rightIdx] < h.list[idx] {
+				if swapIdx < 0 || h.list[swapIdx] > h.list[rightIdx] {
 					swapIdx = rightIdx
 				}
 			}
@@ -99,4 +98,8 @@ func (h *Heap) Pop() int {
 		idx = swapIdx
 	}
 	return top
+}
+
+func (h *Heap) Count() int {
+	return len(h.list)
 }
